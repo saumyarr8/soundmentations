@@ -6,5 +6,9 @@ __all__ = [
     "BaseCompose",
     "Compose",
     "Trim",
+    "RandomTrim",
+    "StartTrim", 
+    "EndTrim",
+    "CenterTrim",
     "load_audio",
 ]

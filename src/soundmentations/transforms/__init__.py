@@ -1,5 +1,9 @@
-from .time.trim import Trim
+from .time.trim import *
 
 __all__ = [
     "Trim",
+    "RandomTrim",
+    "StartTrim",
+    "EndTrim",
+    "CenterTrim",
 ]
