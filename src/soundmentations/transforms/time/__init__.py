@@ -1,15 +1,14 @@
-"""Audio transformations organized by category."""
+"""Time-based audio transformations."""
 
-# Import from time-based transforms
-from .time import (
-    # Trim transforms
+from .trim import (
     Trim,
     RandomTrim,
     StartTrim,
     EndTrim,
     CenterTrim,
-    
-    # Pad transforms
+)
+
+from .pad import (
     Pad,
     CenterPad,
     StartPad,
@@ -18,13 +17,13 @@ from .time import (
     PadToMultiple,
 )
 
-# Export all transforms for public API
+# Export all classes for public API
 __all__ = [
     # Trim transforms
     "Trim",
-    "RandomTrim", 
+    "RandomTrim",
     "StartTrim",
-    "EndTrim",
+    "EndTrim", 
     "CenterTrim",
     
     # Pad transforms
