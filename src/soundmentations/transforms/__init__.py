@@ -18,6 +18,12 @@ from .time import (
     PadToMultiple,
 )
 
+# Import from amplitude-based transforms
+from .amplitude import (
+    # Amplitude transforms
+    Gain,
+)
+
 # Export all transforms for public API
 __all__ = [
     # Trim transforms
@@ -34,4 +40,7 @@ __all__ = [
     "PadToLength",
     "CenterPadToLength",
     "PadToMultiple",
+
+    # Amplitude transforms
+    "Gain",
 ]
