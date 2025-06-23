@@ -44,8 +44,8 @@ class BasePad:
             
         self.p = p
         self.pad_length = pad_length
-    
-    def __call__(self, sample: np.ndarray) -> np.ndarray:
+
+    def __call__(self, sample: np.ndarray, sample_rate: int) -> np.ndarray:
         """
         Apply the padding transform to the audio sample with probability p.
         
