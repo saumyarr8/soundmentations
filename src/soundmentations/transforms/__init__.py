@@ -25,6 +25,10 @@ from .amplitude import (
 
     # Limiter transforms
     Limiter,
+
+    # Fade transforms
+    FadeIn,
+    FadeOut,
 )
 
 # Export all transforms for public API
@@ -53,4 +57,8 @@ __all__ = [
 
     # Limiter transforms
     "Limiter",
+
+    # Fade transforms
+    "FadeIn",
+    "FadeOut",
 ]
