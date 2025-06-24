@@ -31,6 +31,13 @@ from .amplitude import (
     FadeOut,
 )
 
+# Import from pitch-based transforms
+from .pitch import (
+    # Pitch transforms
+    PitchShift,
+    RandomPitchShift,
+)
+
 # Export all transforms for public API
 __all__ = [
     # Time transforms
@@ -61,4 +68,11 @@ __all__ = [
     # Fade transforms
     "FadeIn",
     "FadeOut",
+
+
+
+    # Pitch transforms
+    # Pitch-shift transforms
+    "PitchShift",
+    "RandomPitchShift",
 ]
