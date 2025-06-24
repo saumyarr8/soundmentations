@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 
 class BaseTransform:
@@ -18,30 +19,9 @@ class BaseTransform:
     p : float, optional
         Probability of applying the transform, by default 1.0.
         Must be between 0.0 and 1.0.
-    
-    Notes
-    -----
-    This is an internal implementation detail. End users should use
-    specific transform classes like Gain, Trim, Pad, etc.
     """
     
     def __init__(self, p: float = 1.0):
-        """
-        Initialize the base transform with probability parameter.
-        
-        Parameters
-        ----------
-        p : float, optional
-            Probability of applying the transform, by default 1.0.
-            Must be between 0.0 and 1.0.
-        
-        Raises
-        ------
-        TypeError
-            If p is not a float or integer.
-        ValueError
-            If p is not between 0.0 and 1.0.
-        """
         if not isinstance(p, (float, int)):
             raise TypeError("p must be a float or an integer")
         if not (0.0 <= p <= 1.0):
@@ -56,22 +36,37 @@ class BaseTransform:
         -------
         bool
             True if the transform should be applied, False otherwise.
-            
-        Notes
-        -----
-        Internal method used by transform implementations.
         """
         return random.random() < self.p
 
-    def __call__(self, *args, **kwargs):
+    def validate_audio(self, samples: np.ndarray, sample_rate: int):
         """
-        Apply the transform to input data.
-        
-        This is an abstract method that must be implemented by all subclasses.
-        
+        Validate audio samples and sample rate.
+
+        Parameters
+        ----------
+        samples : np.ndarray
+            Audio samples as a 1D numpy array.
+        sample_rate : int
+            Sample rate of the audio.
+
         Raises
         ------
-        NotImplementedError
-            Always raised as this is an abstract method.
+        TypeError
+            If types are incorrect.
+        ValueError
+            If array is empty, not 1D, or sample rate is non-positive.
         """
+        if not isinstance(samples, np.ndarray):
+            raise TypeError("samples must be a numpy array")
+        if samples.size == 0:
+            raise ValueError("Input samples cannot be empty")
+        if samples.ndim != 1:
+            raise ValueError("samples must be a 1D array (mono audio only)")
+        if not isinstance(sample_rate, int):
+            raise TypeError("sample_rate must be an integer")
+        if sample_rate <= 0:
+            raise ValueError("sample_rate must be positive")
+
+    def __call__(self, *args, **kwargs):
         raise NotImplementedError("Subclasses must implement __call__.")

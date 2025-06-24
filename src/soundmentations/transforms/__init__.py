@@ -20,12 +20,16 @@ from .time import (
 
 # Import from amplitude-based transforms
 from .amplitude import (
-    # Amplitude transforms
+    # Gain transforms
     Gain,
+
+    # Limiter transforms
+    Limiter,
 )
 
 # Export all transforms for public API
 __all__ = [
+    # Time transforms
     # Trim transforms
     "Trim",
     "RandomTrim", 
@@ -41,6 +45,12 @@ __all__ = [
     "CenterPadToLength",
     "PadToMultiple",
 
+
+
     # Amplitude transforms
+    # Gain transforms
     "Gain",
+
+    # Limiter transforms
+    "Limiter",
 ]

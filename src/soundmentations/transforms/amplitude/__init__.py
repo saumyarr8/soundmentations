@@ -8,8 +8,12 @@ normalization, and other amplitude-based effects.
 from .gain import (
     Gain,
 )
+from .limiter import (
+    Limiter,
+)
 
 # Export all transforms for public API
 __all__ = [
     "Gain",
+    "Limiter",
 ]
