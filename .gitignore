@@ -46,7 +46,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-
 # PyBuilder
 target/
 
@@ -82,6 +81,15 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
+# Documentation builds (GitHub Actions handles this)
+docs/build/
+docs/_build/
+docs/source/_autosummary/
+docs/source/api/
+
+# Sphinx
+docs/source/.doctrees/
+
 # mkdocs documentation
 /site
 
@@ -100,3 +108,13 @@ dmypy.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Local development
+.local/
+local_config.py
