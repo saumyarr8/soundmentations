@@ -71,40 +71,41 @@ print(samples.shape)  # (n_samples,) - always 1D mono array
 
 ## Available Transforms
 
-### Time-based Transforms
+### Time transforms
 
-```python
-from soundmentations.transforms.time import (
-    Trim, RandomTrim, StartTrim, EndTrim, CenterTrim,
-    Pad, CenterPad, StartPad, PadToLength, CenterPadToLength, PadToMultiple
-)
+#### Trim transforms
+- `Trim`
+- `RandomTrim`
+- `StartTrim`
+- `EndTrim`
+- `CenterTrim`
 
-# Trimming transforms
-Trim(start_time=1.0, end_time=3.0)           # Keep audio between 1-3 seconds
-RandomTrim(duration=2.0)                     # Random 2-second segment
-RandomTrim(duration=(1.0, 3.0))             # Random segment between 1-3 seconds
-StartTrim(start_time=0.5)                    # Remove first 0.5 seconds
-EndTrim(end_time=5.0)                        # Keep only first 5 seconds
-CenterTrim(duration=3.0)                     # Keep 3 seconds from center
+#### Pad transforms
+- `Pad`
+- `CenterPad`
+- `StartPad`
+- `PadToLength`
+- `CenterPadToLength`
+- `PadToMultiple`
 
-# Padding transforms
-Pad(pad_length=44100)                        # Pad to minimum 1 second
-CenterPad(pad_length=44100)                  # Center padding
-StartPad(pad_length=44100)                   # Pad at beginning
-PadToLength(pad_length=44100)                # Exact length (pad or trim)
-CenterPadToLength(pad_length=44100)          # Exact length, centered
-PadToMultiple(multiple=1024)                 # Pad to multiple of 1024 (STFT-friendly)
-```
+### Amplitude transforms
 
-### Amplitude Transforms
+#### Gain transforms
+- `Gain`
+- `RandomGain`
 
-```python
-from soundmentations.transforms.amplitude import Gain
+#### Limiter transforms
+- `Limiter`
 
-# Gain transforms
-Gain(gain=6.0)                               # Fixed +6dB gain
-Gain(gain=(-12, 12))                         # Random gain between -12dB and +12dB
-```
+#### Fade transforms
+- `FadeIn`
+- `FadeOut`
+
+### Frequency transforms
+
+#### Pitch transforms
+- `PitchShift`
+- `RandomPitchShift`
 
 ## Transform Parameters
 
