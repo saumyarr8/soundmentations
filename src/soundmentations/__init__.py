@@ -26,3 +26,5 @@ __all__ = [
     # Audio utilities
     "load_audio",
 ]
+
+__version__ = "0.1.0"

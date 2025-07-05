@@ -193,25 +193,25 @@ augmented = augment(samples, sample_rate=sr)
 
 ### Utilities
 
-- `load_audio(file_path)`: Load audio file as mono numpy array
+- `load_audio(file_path)`: Load audio file as mono numpy array using soundfile and scipy
 - `Compose([transforms])`: Chain multiple transforms together
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.9+
 - NumPy
-- librosa (for audio loading)
+- soundfile (for audio loading)
+- scipy
 
 ## Roadmap
 
 ### v0.2.0 (Coming Soon)
 - 🎛️ **Frequency transforms**: Filters, EQ, pitch shifting
 - 🎵 **Effect transforms**: Reverb, echo, distortion
-- 🔊 **Noise transforms**: Add background noise, simulate environments
+- 🔊 **Noise transforms**: Add background noise
 
 ### v0.3.0 (Planned)
 - 📦 **Bounding box support**: Audio annotation and localization
-- 🎯 **Event detection**: Onset, offset, and event-based transforms
 
 ### v1.0.0 (Future)
 - 🔀 **Multichannel support**: Full stereo and surround sound processing
@@ -239,7 +239,7 @@ If you use Soundmentations in your research, please cite:
 ```bibtex
 @software{soundmentations,
   title={Soundmentations: Audio Data Augmentation Library},
-  author={Saumya R R},
+  author={Saumya Ranjan},
   url={https://github.com/saumyarr8/soundmentations},
   year={2025}
 }
