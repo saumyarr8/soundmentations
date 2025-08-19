@@ -17,6 +17,10 @@ from .pad import (
     PadToMultiple,
 )
 
+from .mask import (
+    Mask,
+)
+
 # Export all classes for public API
 __all__ = [
     # Trim transforms
@@ -33,4 +37,7 @@ __all__ = [
     "PadToLength",
     "CenterPadToLength",
     "PadToMultiple",
+
+    # Mask transforms
+    "Mask",
 ]

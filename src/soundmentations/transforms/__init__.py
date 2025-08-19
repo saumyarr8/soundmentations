@@ -16,6 +16,9 @@ from .time import (
     PadToLength,
     CenterPadToLength,
     PadToMultiple,
+
+    # Mask transforms
+    Mask,
 )
 
 # Import from amplitude-based transforms
@@ -29,10 +32,13 @@ from .amplitude import (
     # Fade transforms
     FadeIn,
     FadeOut,
+
+    # Compressor transforms
+    Compressor,
 )
 
-# Import from pitch-based transforms
-from .pitch import (
+# Import from frequency-based transforms
+from .frequency import (
     # Pitch transforms
     PitchShift,
     RandomPitchShift,
@@ -56,6 +62,9 @@ __all__ = [
     "CenterPadToLength",
     "PadToMultiple",
 
+    #Mask transforms
+    "Mask",
+
 
 
     # Amplitude transforms
@@ -69,9 +78,12 @@ __all__ = [
     "FadeIn",
     "FadeOut",
 
+    # Compressor transforms
+    "Compressor",
 
 
-    # Pitch transforms
+
+    # Frequency transforms
     # Pitch-shift transforms
     "PitchShift",
     "RandomPitchShift",

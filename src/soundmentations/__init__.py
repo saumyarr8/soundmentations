@@ -3,8 +3,7 @@ from .transforms import *
 from .utils.audio import *
 
 __all__ = [
-    # Core composition classes
-    "BaseCompose",
+    ### Core composition classes
     "Compose",
 
     ### Transforms
@@ -24,8 +23,9 @@ __all__ = [
     "CenterPadToLength",
     "PadToMultiple",
 
+    # Mask transforms
+    "Mask",
 
-    
     ## Amplitude transforms
     # Gain transforms
     "Gain",
@@ -37,6 +37,9 @@ __all__ = [
     # Fade transforms
     "FadeIn",
     "FadeOut",
+
+    #Compressor transforms
+    "Compressor",
 
     ## Frequency transforms
     # Pitch transforms

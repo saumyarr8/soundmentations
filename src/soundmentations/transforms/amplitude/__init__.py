@@ -18,10 +18,15 @@ from .fade import (
     FadeOut,
 )
 
+from .compressor import (
+    Compressor,
+)
+
 # Export all transforms for public API
 __all__ = [
     "Gain",
     "Limiter",
     "FadeIn",
     "FadeOut",
+    "Compressor",
 ]
