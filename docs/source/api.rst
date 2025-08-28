@@ -20,44 +20,50 @@ All Available Transforms
    :nosignatures:
    :template: class.rst
 
-   ~soundmentations.PitchShift
-   ~soundmentations.RandomPitchShift
-   ~soundmentations.Limiter
-   ~soundmentations.FadeIn
-   ~soundmentations.FadeOut
-   ~soundmentations.Trim
-   ~soundmentations.RandomTrim
-   ~soundmentations.StartTrim
-   ~soundmentations.EndTrim
-   ~soundmentations.CenterTrim
-   ~soundmentations.Compose
+   Compose
+   OneOf
+   Trim
+   RandomTrim
+   StartTrim
+   EndTrim
+   CenterTrim
+   Pad
+   CenterPad
+   StartPad
+   PadToLength
+   CenterPadToLength
+   PadToMultiple
+   Mask
+   Gain
+   RandomGain
+   PerSampleRandomGain
+   RandomGainEnvelope
+   Limiter
+   FadeIn
+   FadeOut
+   Compressor
+   PitchShift
+   RandomPitchShift
 
 Transforms by Category
 ----------------------
 
-Pitch Transforms
-~~~~~~~~~~~~~~~~
+Composition
+~~~~~~~~~~~
 
 .. currentmodule:: soundmentations
 
 .. autosummary::
    :toctree: _autosummary
 
-   PitchShift
-   RandomPitchShift
+   Compose
+   OneOf
 
-Amplitude Transforms
-~~~~~~~~~~~~~~~~~~~~
-
-.. autosummary::
-   :toctree: _autosummary
-
-   Limiter
-   FadeIn
-   FadeOut
+Time Transforms
+~~~~~~~~~~~~~~~
 
 Trim Transforms
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 .. autosummary::
    :toctree: _autosummary
@@ -68,10 +74,74 @@ Trim Transforms
    EndTrim
    CenterTrim
 
-Composition
------------
+Pad Transforms
+^^^^^^^^^^^^^^
 
 .. autosummary::
    :toctree: _autosummary
 
-   Compose
+   Pad
+   CenterPad
+   StartPad
+   PadToLength
+   CenterPadToLength
+   PadToMultiple
+
+Mask Transforms
+^^^^^^^^^^^^^^^
+
+.. autosummary::
+   :toctree: _autosummary
+
+   Mask
+
+Amplitude Transforms
+~~~~~~~~~~~~~~~~~~~~
+
+Gain Transforms
+^^^^^^^^^^^^^^^
+
+.. autosummary::
+   :toctree: _autosummary
+
+   Gain
+   RandomGain
+   PerSampleRandomGain
+   RandomGainEnvelope
+
+Limiter Transforms
+^^^^^^^^^^^^^^^^^^
+
+.. autosummary::
+   :toctree: _autosummary
+
+   Limiter
+
+Fade Transforms
+^^^^^^^^^^^^^^^
+
+.. autosummary::
+   :toctree: _autosummary
+
+   FadeIn
+   FadeOut
+
+Compressor Transforms
+^^^^^^^^^^^^^^^^^^^^^
+
+.. autosummary::
+   :toctree: _autosummary
+
+   Compressor
+
+Frequency Transforms
+~~~~~~~~~~~~~~~~~~~~
+
+Pitch Transforms
+^^^^^^^^^^^^^^^^
+
+.. autosummary::
+   :toctree: _autosummary
+
+   PitchShift
+   RandomPitchShift

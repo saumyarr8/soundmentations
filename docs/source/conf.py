@@ -67,7 +67,11 @@ napoleon_numpy_docstring = True
 napoleon_include_init_with_doc = False
 
 # Suppress warnings
-suppress_warnings = ['autodoc.duplicate_object']
+suppress_warnings = [
+    'autodoc.duplicate_object',
+    'autosummary.import_cycle',
+    'toc.not_readable'
+]
 
 # Intersphinx mapping
 intersphinx_mapping = {

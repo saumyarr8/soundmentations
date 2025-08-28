@@ -30,12 +30,13 @@ jobs:
     
     - name: Install dependencies
       run: |
+        python -m pip install --upgrade pip
         pip install -e ".[docs]"
     
     - name: Build documentation
       run: |
         cd docs
-        make html
+        python -m sphinx -b html source build/html
     
     - name: Setup Pages
       uses: actions/configure-pages@v5

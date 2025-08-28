@@ -7,6 +7,9 @@ normalization, and other amplitude-based effects.
 """
 from .gain import (
     Gain,
+    RandomGain,
+    PerSampleRandomGain,
+    RandomGainEnvelope,
 )
 
 from .limiter import (
@@ -25,6 +28,9 @@ from .compressor import (
 # Export all transforms for public API
 __all__ = [
     "Gain",
+    "RandomGain",
+    "PerSampleRandomGain",
+    "RandomGainEnvelope",
     "Limiter",
     "FadeIn",
     "FadeOut",

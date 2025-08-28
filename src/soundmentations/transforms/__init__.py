@@ -25,6 +25,9 @@ from .time import (
 from .amplitude import (
     # Gain transforms
     Gain,
+    RandomGain,
+    PerSampleRandomGain,
+    RandomGainEnvelope,
 
     # Limiter transforms
     Limiter,
@@ -70,6 +73,9 @@ __all__ = [
     # Amplitude transforms
     # Gain transforms
     "Gain",
+    "RandomGain",
+    "PerSampleRandomGain",
+    "RandomGainEnvelope",
 
     # Limiter transforms
     "Limiter",

@@ -5,6 +5,7 @@ from .utils.audio import *
 __all__ = [
     ### Core composition classes
     "Compose",
+    "OneOf",
 
     ### Transforms
     ## Time transforms
@@ -30,6 +31,8 @@ __all__ = [
     # Gain transforms
     "Gain",
     "RandomGain",
+    "PerSampleRandomGain",
+    "RandomGainEnvelope",
 
     # Limiter transforms
     "Limiter",
