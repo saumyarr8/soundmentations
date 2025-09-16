@@ -108,7 +108,7 @@ class BaseMask(BaseTransform):
         raise NotImplementedError("Subclasses must implement the _mask method.")
     
 
-class TimeMask(BaseMask):
+class Mask(BaseMask):
     """
     Mask a random contiguous segment of audio data with zeros.
 
@@ -207,7 +207,6 @@ class TimeMask(BaseMask):
         start = np.random.randint(0, max_start + 1)
         end = start + mask_length
         
-        # Create masked audio by concatenating unmasked portions with zeros
         masked_sample = sample.copy()
         masked_sample[start:end] = 0
         
