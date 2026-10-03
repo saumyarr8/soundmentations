@@ -211,3 +211,73 @@ class Compressor(BaseCompressor):
 
         return sample * gain
     
+class SoftKneeCompressor(BaseCompressor):
+    """
+    Apply dynamic range compression with a soft knee to the audio sample.
+
+    This compressor uses an envelope follower with configurable attack and 
+    release times to track the signal level, then applies gain reduction
+    based on a threshold, ratio, and knee width.
+
+    Parameters
+    ----------
+    threshold : float
+        The threshold above which compression is applied, in dB.
+        Typical values range from -40 to -6 dB.
+    ratio : float
+        The compression ratio to apply. Must be >= 1.0.
+        - 1.0 = no compression
+        - 2.0 = 2:1 compression 
+        - 10.0 = 10:1 compression (heavy compression)
+    knee_width : float
+        The width of the knee region in dB. A larger knee width results in 
+        a smoother transition into compression. Typical values: 0 to 20 dB.
+    attack_time : float
+        Attack time in milliseconds. How quickly the compressor responds to 
+        signals above the threshold. Typical values: 0.1 to 100 ms.
+    release_time : float
+        Release time in milliseconds. How quickly the compressor stops 
+        compressing after the signal falls below threshold.
+        Typical values: 10 to 1000 ms.
+    p : float, optional
+        Probability of applying the transform, by default 1.0.
+
+    Examples
+    --------
+    >>> import numpy as np
+    >>> from soundmentations.transforms.amplitude.compressor import SoftKneeCompressor
+    >>> 
+    >>> # Create a soft knee compressor with 4:1 ratio, -12dB threshold, and 6dB knee width
+    >>> soft_knee_compressor = SoftKneeCompressor(threshold=-12.0, ratio=4.0, 
+    ...                                          knee_width=6.0,
+    ...                                          attack_time=5.0, release_time=50.0)
+    >>> 
+    >>> # Apply to a sine wave
+    >>> sample_rate = 44100
+    >>> duration = 1.0
+    >>> t = np.linspace(0, duration, int(sample_rate * duration))
+    >>> audio = np.sin(2 * np.pi * 440 * t) * 0.8  # 440Hz sine wave
+    >>> compressed = soft_knee_compressor(audio, sample_rate)
+
+    Uses 2nd order interpolation in the knee region for smooth gain
+    transitions. Given in Reiss (2011)
+    """
+
+    def __init__(self, threshold: float, ratio: float, knee_width: float, attack_time: float, release_time: float, p: float = 1.0):
+        super().__init__(threshold, ratio, attack_time, release_time, p)
+        self.knee_width = knee_width
+
+    def _compress(self, sample: np.ndarray, sample_rate: int) -> np.ndarray:
+        threshold_lin = 10 ** (self.threshold / 20.0)
+
+        attack_coeff = np.exp(-1.0 / (0.001 * self.attack_time * sample_rate))
+        release_coeff = np.exp(-1.0 / (0.001 * self.release_time * sample_rate))
+
+        envelope = np.zeros_like(sample)
+        gain = np.ones_like(sample)
+        prev_env = 0.0
+
+        
+
+
+
